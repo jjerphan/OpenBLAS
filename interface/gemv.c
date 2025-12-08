@@ -136,7 +136,7 @@ static inline int get_gemv_optimal_nthreads(BLASLONG MN) {
 void NAME(char *TRANS, blasint *M, blasint *N,
 	   FLOAT *ALPHA, FLOAT *a, blasint *LDA,
 	   FLOAT *x, blasint *INCX,
-	   FLOAT *BETA, FLOAT *y, blasint *INCY){
+	   FLOAT *BETA, FLOAT *y, blasint *INCY, int dummy_len){
 
   char trans = *TRANS;
   blasint m = *M;
@@ -269,7 +269,7 @@ void CNAME(enum CBLAS_ORDER order,
   if (beta != ONE) SCAL_K(leny, 0, 0, beta, y, blasabs(incy), NULL, 0, NULL, 0);
 
   if (alpha == ZERO) return;
-	
+
   IDEBUG_START;
 
   FUNCTION_PROFILE_START();

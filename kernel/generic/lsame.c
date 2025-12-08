@@ -38,7 +38,7 @@
 
 #include <ctype.h>
 
-int NAME(const char *A, const char *B){
+int NAME(const char *A, const char *B, int dummy_len0, int dummy_len1){
 
   char a = *A;
   char b = *B;

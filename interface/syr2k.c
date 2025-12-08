@@ -85,7 +85,7 @@ void NAME(char *UPLO, char *TRANS,
          blasint *N, blasint *K,
          FLOAT *alpha, FLOAT *a, blasint *ldA,
 	               FLOAT *b, blasint *ldB,
-         FLOAT *beta,  FLOAT *c, blasint *ldC){
+         FLOAT *beta,  FLOAT *c, blasint *ldC, int dummy_len0, int dummy_len1){
 
   char uplo_arg  = *UPLO;
   char trans_arg = *TRANS;

@@ -96,7 +96,7 @@ static int (*syrk[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLA
 void NAME(char *UPLO, char *TRANS,
          blasint *N, blasint *K,
          FLOAT *alpha, FLOAT *a, blasint *ldA,
-         FLOAT *beta,  FLOAT *c, blasint *ldC){
+         FLOAT *beta,  FLOAT *c, blasint *ldC, int dummy_len0, int dummy_len1){
 
   char uplo_arg  = *UPLO;
   char trans_arg = *TRANS;
