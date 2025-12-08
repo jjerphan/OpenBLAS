@@ -76,7 +76,7 @@ static int (*her_thread[])(BLASLONG, FLOAT, FLOAT *, BLASLONG, FLOAT *, BLASLONG
 #ifndef CBLAS
 
 void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
-	  FLOAT  *x, blasint *INCX, FLOAT *a, blasint *LDA){
+	  FLOAT  *x, blasint *INCX, FLOAT *a, blasint *LDA, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n		= *N;

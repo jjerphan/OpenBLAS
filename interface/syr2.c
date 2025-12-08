@@ -76,7 +76,7 @@ static int (*syr2_thread[])(BLASLONG, FLOAT, FLOAT *, BLASLONG, FLOAT *, BLASLON
 #ifndef CBLAS
 
 void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
-	 FLOAT  *x, blasint *INCX, FLOAT *y, blasint *INCY, FLOAT *a, blasint *LDA){
+	 FLOAT  *x, blasint *INCX, FLOAT *y, blasint *INCY, FLOAT *a, blasint *LDA, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n		= *N;
@@ -188,7 +188,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
     return;
   }
 
-	  
+
   FUNCTION_PROFILE_START();
 
   if (incx < 0 ) x -= (n - 1) * incx;

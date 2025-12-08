@@ -55,8 +55,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 FLOAT LAMC3(FLOAT *, FLOAT *);
 void LAED4(blasint *, blasint *, FLOAT *, FLOAT *, FLOAT *, FLOAT *, FLOAT *, blasint *);
-void LACPY(char *, blasint *, blasint *, FLOAT *, blasint *, FLOAT *, blasint *);
-void LASET(char *, blasint *, blasint *, FLOAT *, FLOAT *, FLOAT *, blasint *);
+void LACPY(char *, blasint *, blasint *, FLOAT *, blasint *, FLOAT *, blasint *, int);
+void LASET(char *, blasint *, blasint *, FLOAT *, FLOAT *, FLOAT *, blasint *, int);
 
 /* Table of constant values */
 static blasint c1 = 1;
@@ -64,9 +64,9 @@ static FLOAT c1f = 1.;
 static FLOAT c0f = 0.;
 
 /* ===================================================================== */
-blasint CNAME(blasint *k, blasint *n, blasint *n1, FLOAT *d, 
+blasint CNAME(blasint *k, blasint *n, blasint *n1, FLOAT *d,
         FLOAT *q, blasint *ldq, FLOAT *rho, FLOAT *dlamda,
-        FLOAT *q2, blasint *indx, blasint *ctot, FLOAT *w, 
+        FLOAT *q2, blasint *indx, blasint *ctot, FLOAT *w,
         FLOAT *s, blasint *info)
 {
   FLOAT temp;
@@ -147,19 +147,19 @@ blasint CNAME(blasint *k, blasint *n, blasint *n1, FLOAT *d,
   n12 = ctot[0] + ctot[1];
   n23 = ctot[1] + ctot[2];
 
-  LACPY("A", &n23, k, &q[ctot[0]], ldq, s, &n23);
+  LACPY("A", &n23, k, &q[ctot[0]], ldq, s, &n23, 1);
   iq2 = *n1 * n12;
   if (n23 != 0) {
-    GEMM("N", "N", &n2, k, &n23, &c1f, &q2[iq2], &n2, s, &n23, &c0f, &q[*n1], ldq);
+    GEMM("N", "N", &n2, k, &n23, &c1f, &q2[iq2], &n2, s, &n23, &c0f, &q[*n1], ldq, 1, 1);
   } else {
-    LASET("A", &n2, k, &c0f, &c0f, &q[*n1], ldq);
+    LASET("A", &n2, k, &c0f, &c0f, &q[*n1], ldq, 1);
   }
 
-  LACPY("A", &n12, k, q, ldq, s, &n12);
+  LACPY("A", &n12, k, q, ldq, s, &n12, 1);
   if (n12 != 0) {
-    GEMM("N", "N", n1, k, &n12, &c1f, q2, n1, s, &n12, &c0f, q, ldq);
+    GEMM("N", "N", n1, k, &n12, &c1f, q2, n1, s, &n12, &c0f, q, ldq, 1, 1);
   } else {
-    LASET("A", n1, k, &c0f, &c0f, q, ldq);
+    LASET("A", n1, k, &c0f, &c0f, q, ldq, 1);
   }
 
   return 0;

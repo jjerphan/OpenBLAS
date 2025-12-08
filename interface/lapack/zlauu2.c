@@ -61,7 +61,7 @@ static blasint (*lauu2[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *
 #endif
   };
 
-int NAME(char *UPLO, blasint *N, FLOAT *a, blasint *ldA, blasint *Info){
+int NAME(char *UPLO, blasint *N, FLOAT *a, blasint *ldA, blasint *Info, int dummy_len){
 
   blas_arg_t args;
 

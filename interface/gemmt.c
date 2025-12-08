@@ -90,7 +90,7 @@ void NAME(char *UPLO, char *TRANSA, char *TRANSB,
 	  blasint * M, blasint * K,
 	  FLOAT * Alpha,
 	  IFLOAT * a, blasint * ldA,
-	  IFLOAT * b, blasint * ldB, FLOAT * Beta, FLOAT * c, blasint * ldC)
+	  IFLOAT * b, blasint * ldB, FLOAT * Beta, FLOAT * c, blasint * ldC, int dummy_len0, int dummy_len1, int dummy_len2)
 {
 
 	blasint m, k;
@@ -180,7 +180,7 @@ void NAME(char *UPLO, char *TRANSA, char *TRANSB,
 		uplo = 0;
 	if (Uplo == 'L')
 		uplo = 1;
-	
+
 	nrowa = m;
 	if (transa & 1) nrowa = k;
 	nrowb = k;
@@ -377,7 +377,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo,
 
 		info = -1;
 
-		blasint ncola; 
+		blasint ncola;
 #if !defined(COMPLEX)
 		blasint ncolb;
 #endif

@@ -67,7 +67,7 @@ static int (*trsv[])(BLASLONG, FLOAT *, BLASLONG, FLOAT *, BLASLONG, void *) = {
 #ifndef CBLAS
 
 void NAME(char *UPLO, char *TRANS, char *DIAG,
-	   blasint *N, FLOAT *a, blasint *LDA, FLOAT *x, blasint *INCX){
+	   blasint *N, FLOAT *a, blasint *LDA, FLOAT *x, blasint *INCX, int dummy_len0, int dummy_len1, int dummy_len2){
 
   char uplo_arg  = *UPLO;
   char trans_arg = *TRANS;

@@ -67,7 +67,7 @@ static int (*gemv_thread[])(BLASLONG, BLASLONG, FLOAT *, FLOAT *, BLASLONG,  FLO
 void NAME(char *TRANS, blasint *M, blasint *N,
 	 FLOAT *ALPHA, FLOAT *a, blasint *LDA,
 	 FLOAT *x, blasint *INCX,
-	 FLOAT *BETA,  FLOAT *y, blasint *INCY){
+	 FLOAT *BETA,  FLOAT *y, blasint *INCY, int dummy_len){
 
   char trans = *TRANS;
   blasint m = *M;
@@ -253,7 +253,7 @@ void CNAME(enum CBLAS_ORDER order,
 #ifdef SMP
 
 #if defined(_WIN64) && defined(_M_ARM64)
-  if (m*n > 25000000L) 
+  if (m*n > 25000000L)
     nthreads = num_cpu_avail(4);
   else
     nthreads = 1;
@@ -262,10 +262,10 @@ void CNAME(enum CBLAS_ORDER order,
     nthreads = 1;
   else
     nthreads = num_cpu_avail(2);
-#endif  
+#endif
 
   if (nthreads == 1) {
-#endif  
+#endif
 
     (gemv[(int)trans])(m, n, 0, alpha_r, alpha_i, a, lda, x, incx, y, incy, buffer);
 

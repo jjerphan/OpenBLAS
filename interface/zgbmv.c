@@ -86,7 +86,7 @@ void NAME(char *TRANS, blasint *M, blasint *N,
 	 blasint *KU, blasint *KL,
 	 FLOAT *ALPHA, FLOAT *a, blasint *LDA,
 	 FLOAT *x, blasint *INCX,
-	 FLOAT *BETA, FLOAT *y, blasint *INCY){
+	 FLOAT *BETA, FLOAT *y, blasint *INCY, int dummy_len){
 
   char trans = *TRANS;
   blasint m = *M;
@@ -251,7 +251,7 @@ void CNAME(enum CBLAS_ORDER order,
   buffer = (FLOAT *)blas_memory_alloc(1);
 
 #ifdef SMP
-  if (m * n  < 125000 || ku + kl < 15) 
+  if (m * n  < 125000 || ku + kl < 15)
     nthreads = 1;
   else
     nthreads = num_cpu_avail(2);
