@@ -21,7 +21,3 @@ ifeq ($(CORE), RISCV64_ZVL128B)
 CCOMMON_OPT += -march=$(RISCV64_OPT) -mabi=lp64d
 FCOMMON_OPT += -march=$(RISCV64_OPT) -mabi=lp64d
 endif
-ifeq ($(CORE), RISCV64_GENERIC)
-CCOMMON_OPT += -march=rv64imafdc -mabi=lp64d
-FCOMMON_OPT += -march=rv64imafdc -mabi=lp64d
-endif
