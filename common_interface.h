@@ -44,7 +44,7 @@ extern "C" {
 	/* Assume C declarations for C++ */
 #endif  /* __cplusplus */
 
-int    BLASFUNC(xerbla)(char *, blasint *info, blasint);
+void    BLASFUNC(xerbla)(char *, blasint *info, blasint);
 
 void    openblas_set_num_threads_(int *);
 
@@ -447,10 +447,10 @@ void BLASFUNC(zhpmv) (char *, blasint *, double  *, double *,
 void BLASFUNC(xhpmv) (char *, blasint *, xdouble  *, xdouble *,
 		     xdouble  *, blasint *, xdouble *, xdouble *, blasint *, int);
 
-int BLASFUNC(snorm)(char *, blasint *, blasint *, float  *, blasint *, int);
-int BLASFUNC(dnorm)(char *, blasint *, blasint *, double *, blasint *, int);
-int BLASFUNC(cnorm)(char *, blasint *, blasint *, float  *, blasint *, int);
-int BLASFUNC(znorm)(char *, blasint *, blasint *, double *, blasint *, int);
+void BLASFUNC(snorm)(char *, blasint *, blasint *, float  *, blasint *, int);
+void BLASFUNC(dnorm)(char *, blasint *, blasint *, double *, blasint *, int);
+void BLASFUNC(cnorm)(char *, blasint *, blasint *, float  *, blasint *, int);
+void BLASFUNC(znorm)(char *, blasint *, blasint *, double *, blasint *, int);
 
 void BLASFUNC(sgbmv)(char *, blasint *, blasint *, blasint *, blasint *, float  *, float  *, blasint *,
 		    float  *, blasint *, float  *, float  *, blasint *, int);
@@ -522,16 +522,16 @@ void BLASFUNC(cgemmt)(char*, char *, char *, blasint *, blasint *, float *,
 void BLASFUNC(zgemmt)(char*, char *, char *, blasint *, blasint *, double *,
 	   double *, blasint *, double *, blasint *, double *, double *, blasint *, int, int, int);
 
-int BLASFUNC(sge2mm)(char *, char *, char *, blasint *, blasint *,
+void BLASFUNC(sge2mm)(char *, char *, char *, blasint *, blasint *,
 		     float *, float  *, blasint *, float  *, blasint *,
 		     float *, float  *, blasint *, int, int, int);
-int BLASFUNC(dge2mm)(char *, char *, char *, blasint *, blasint *,
+void BLASFUNC(dge2mm)(char *, char *, char *, blasint *, blasint *,
 		     double *, double  *, blasint *, double  *, blasint *,
 		     double *, double  *, blasint *, int, int, int);
-int BLASFUNC(cge2mm)(char *, char *, char *, blasint *, blasint *,
+void BLASFUNC(cge2mm)(char *, char *, char *, blasint *, blasint *,
 		     float *, float  *, blasint *, float  *, blasint *,
 		     float *, float  *, blasint *, int, int, int);
-int BLASFUNC(zge2mm)(char *, char *, char *, blasint *, blasint *,
+void BLASFUNC(zge2mm)(char *, char *, char *, blasint *, blasint *,
 		     double *, double  *, blasint *, double  *, blasint *,
 		     double *, double  *, blasint *, int, int, int);
 
@@ -635,51 +635,51 @@ void BLASFUNC(zher2k)(char *, char *, blasint *, blasint *, double *, double *, 
 void BLASFUNC(xher2k)(char *, char *, blasint *, blasint *, xdouble *, xdouble *, blasint *,
 	   xdouble*, blasint *, xdouble *, xdouble *, blasint *, int, int);
 
-int BLASFUNC(cher2m)(char *, char *, char *, blasint *, blasint *, float  *, float  *, blasint *,
+void BLASFUNC(cher2m)(char *, char *, char *, blasint *, blasint *, float  *, float  *, blasint *,
 	   float *, blasint *, float  *, float  *, blasint *, int, int, int);
-int BLASFUNC(zher2m)(char *, char *, char *, blasint *, blasint *, double *, double *, blasint *,
+void BLASFUNC(zher2m)(char *, char *, char *, blasint *, blasint *, double *, double *, blasint *,
 	   double*, blasint *, double *, double *, blasint *, int, int, int);
-int BLASFUNC(xher2m)(char *, char *, char *, blasint *, blasint *, xdouble *, xdouble *, blasint *,
+void BLASFUNC(xher2m)(char *, char *, char *, blasint *, blasint *, xdouble *, xdouble *, blasint *,
 	   xdouble*, blasint *, xdouble *, xdouble *, blasint *, int, int, int);
 
-int BLASFUNC(sgemt)(char *, blasint *, blasint *, float  *, float  *, blasint *,
+void BLASFUNC(sgemt)(char *, blasint *, blasint *, float  *, float  *, blasint *,
 		    float  *, blasint *, int);
-int BLASFUNC(dgemt)(char *, blasint *, blasint *, double *, double *, blasint *,
+void BLASFUNC(dgemt)(char *, blasint *, blasint *, double *, double *, blasint *,
 		    double *, blasint *, int);
-int BLASFUNC(cgemt)(char *, blasint *, blasint *, float  *, float  *, blasint *,
+void BLASFUNC(cgemt)(char *, blasint *, blasint *, float  *, float  *, blasint *,
 		    float  *, blasint *, int);
-int BLASFUNC(zgemt)(char *, blasint *, blasint *, double *, double *, blasint *,
+void BLASFUNC(zgemt)(char *, blasint *, blasint *, double *, double *, blasint *,
 		    double *, blasint *, int);
 
-int BLASFUNC(sgema)(char *, char *, blasint *, blasint *, float  *,
+void BLASFUNC(sgema)(char *, char *, blasint *, blasint *, float  *,
 		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
-int BLASFUNC(dgema)(char *, char *, blasint *, blasint *, double *,
+void BLASFUNC(dgema)(char *, char *, blasint *, blasint *, double *,
 		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
-int BLASFUNC(cgema)(char *, char *, blasint *, blasint *, float  *,
+void BLASFUNC(cgema)(char *, char *, blasint *, blasint *, float  *,
 		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
-int BLASFUNC(zgema)(char *, char *, blasint *, blasint *, double *,
-		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
-
-int BLASFUNC(sgems)(char *, char *, blasint *, blasint *, float  *,
-		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
-int BLASFUNC(dgems)(char *, char *, blasint *, blasint *, double *,
-		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
-int BLASFUNC(cgems)(char *, char *, blasint *, blasint *, float  *,
-		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
-int BLASFUNC(zgems)(char *, char *, blasint *, blasint *, double *,
+void BLASFUNC(zgema)(char *, char *, blasint *, blasint *, double *,
 		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
 
-int BLASFUNC(sgemc)(char *, char *, blasint *, blasint *, blasint *, float *,
+void BLASFUNC(sgems)(char *, char *, blasint *, blasint *, float  *,
+		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
+void BLASFUNC(dgems)(char *, char *, blasint *, blasint *, double *,
+		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
+void BLASFUNC(cgems)(char *, char *, blasint *, blasint *, float  *,
+		    float  *, blasint *, float *, float  *, blasint *, float *, blasint *, int, int);
+void BLASFUNC(zgems)(char *, char *, blasint *, blasint *, double *,
+		    double *, blasint *, double*, double *, blasint *, double*, blasint *, int, int);
+
+void BLASFUNC(sgemc)(char *, char *, blasint *, blasint *, blasint *, float *,
 	   float  *, blasint *, float  *, blasint *, float  *, blasint *, float  *, float  *, blasint *, int, int);
-int BLASFUNC(dgemc)(char *, char *, blasint *, blasint *, blasint *, double *,
+void BLASFUNC(dgemc)(char *, char *, blasint *, blasint *, blasint *, double *,
 	   double *, blasint *, double *, blasint *, double *, blasint *, double *, double *, blasint *, int, int);
-int BLASFUNC(qgemc)(char *, char *, blasint *, blasint *, blasint *, xdouble *,
+void BLASFUNC(qgemc)(char *, char *, blasint *, blasint *, blasint *, xdouble *,
 	   xdouble *, blasint *, xdouble *, blasint *, xdouble *, blasint *,  xdouble *, xdouble *, blasint *, int, int);
-int BLASFUNC(cgemc)(char *, char *, blasint *, blasint *, blasint *, float *,
+void BLASFUNC(cgemc)(char *, char *, blasint *, blasint *, blasint *, float *,
 	   float  *, blasint *, float  *, blasint *, float  *, blasint *, float  *, float  *, blasint *, int, int);
-int BLASFUNC(zgemc)(char *, char *, blasint *, blasint *, blasint *, double *,
+void BLASFUNC(zgemc)(char *, char *, blasint *, blasint *, blasint *, double *,
 	   double *, blasint *, double *, blasint *, double *, blasint *, double *, double *, blasint *, int, int);
-int BLASFUNC(xgemc)(char *, char *, blasint *, blasint *, blasint *, xdouble *,
+void BLASFUNC(xgemc)(char *, char *, blasint *, blasint *, blasint *, xdouble *,
 	   xdouble *, blasint *, xdouble *, blasint *, xdouble *, blasint *, xdouble *, xdouble *, blasint *, int, int);
 
 /* Lapack routines */
