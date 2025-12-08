@@ -98,7 +98,7 @@ int NAME(blasint *M, blasint *N, FLOAT *a, blasint *ldA, blasint *ipiv, blasint 
 
 #ifndef DOUBLE
   int nmax = 40000;
-#else 
+#else
   int nmax = 10000;
 #endif
   if (args.m*args.n <nmax) {
