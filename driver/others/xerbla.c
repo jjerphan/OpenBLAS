@@ -47,7 +47,7 @@
 #endif
 
 #ifdef INTERFACE64
-#define MSGFMT " ** On entry to %6s parameter number %2ld had an illegal value\n" 
+#define MSGFMT " ** On entry to %6s parameter number %2ld had an illegal value\n"
 #else
 #define MSGFMT " ** On entry to %6s parameter number %2d had an illegal value\n"
 #endif
@@ -58,19 +58,19 @@ int __xerbla(char *message, blasint *info, blasint length){
   printf(MSGFMT,
 	  message, *info);
 
-  return 0;
+  return;
 }
 
 int BLASFUNC(xerbla)(char *, blasint *, blasint) __attribute__ ((weak, alias ("__xerbla")));
 
 #else
 
-int BLASFUNC(xerbla)(char *message, blasint *info, blasint length){
+void BLASFUNC(xerbla)(char *message, blasint *info, blasint length){
 
   printf(MSGFMT,
 	  message, *info);
 
-  return 0;
+  return;
 }
 
 #endif
