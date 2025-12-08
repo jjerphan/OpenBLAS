@@ -76,7 +76,7 @@ OPENBLAS_EXPORT
 
 void NAME(char *UPLO, char *TRANS, char *DIAG,
 	 blasint *N, blasint *K,
-	 FLOAT *a, blasint *LDA, FLOAT *x, blasint *INCX){
+	 FLOAT *a, blasint *LDA, FLOAT *x, blasint *INCX, int dummy_len0, int dummy_len1, int dummy_len2){
 
   char uplo_arg  = *UPLO;
   char trans_arg = *TRANS;
@@ -137,7 +137,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo,
 
   FLOAT *a = (FLOAT*) va;
   FLOAT *x = (FLOAT*) vx;
-  
+
   int trans, uplo, unit;
   blasint info;
   FLOAT *buffer;

@@ -157,7 +157,7 @@ void NAME(char *SIDE, char *UPLO,
          blasint *M, blasint *N,
          FLOAT *alpha, FLOAT *a, blasint *ldA,
          FLOAT *b, blasint *ldB,
-         FLOAT *beta,  FLOAT *c, blasint *ldC){
+         FLOAT *beta,  FLOAT *c, blasint *ldC, int dummy_len0, int dummy_len1){
 
   char side_arg  = *SIDE;
   char uplo_arg  = *UPLO;
@@ -255,7 +255,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
   FLOAT *beta  = (FLOAT*) vbeta;
   FLOAT *a = (FLOAT*) va;
   FLOAT *b = (FLOAT*) vb;
-  FLOAT *c = (FLOAT*) vc;	   
+  FLOAT *c = (FLOAT*) vc;
 #endif
 
   blas_arg_t args;

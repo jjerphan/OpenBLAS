@@ -60,7 +60,7 @@ OPENBLAS_EXPORT
 #ifndef CBLAS
 
 void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA, FLOAT *a, blasint *LDA,
-            FLOAT  *x, blasint *INCX, FLOAT *BETA, FLOAT *y, blasint *INCY){
+            FLOAT  *x, blasint *INCX, FLOAT *BETA, FLOAT *y, blasint *INCY, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n		= *N;

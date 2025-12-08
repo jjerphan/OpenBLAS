@@ -262,7 +262,7 @@ void NAME(char *TRANSA, char *TRANSB,
 	  IFLOAT *a, blasint *ldA,
 	  IFLOAT *b, blasint *ldB,
 	  FLOAT *beta,
-	  FLOAT *c, blasint *ldC){
+	  FLOAT *c, blasint *ldC, int dummy_len0, int dummy_len1){
 
   blas_arg_t args;
 

@@ -83,7 +83,7 @@ static  int (*sbmv_thread[])(BLASLONG, BLASLONG, FLOAT *, FLOAT *, BLASLONG, FLO
 
 OPENBLAS_EXPORT
 void NAME(char *UPLO, blasint *N, blasint *K, FLOAT  *ALPHA, FLOAT *a, blasint *LDA,
-            FLOAT  *b, blasint *INCX, FLOAT *BETA, FLOAT *c, blasint *INCY){
+            FLOAT  *b, blasint *INCX, FLOAT *BETA, FLOAT *c, blasint *INCY, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n	= *N;

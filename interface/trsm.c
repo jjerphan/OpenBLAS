@@ -119,7 +119,7 @@ OPENBLAS_EXPORT
 
 void NAME(char *SIDE, char *UPLO, char *TRANS, char *DIAG,
 	   blasint *M, blasint *N, FLOAT *alpha,
-	   FLOAT *a, blasint *ldA, FLOAT *b, blasint *ldB){
+	   FLOAT *a, blasint *ldA, FLOAT *b, blasint *ldB, int dummy_len0, int dummy_len1, int dummy_len2, int dummy_len3){
 
   char side_arg  = *SIDE;
   char uplo_arg  = *UPLO;
@@ -421,7 +421,7 @@ if (strcmp(gotoblas_corename(), "armv9sme") == 0
 	args.nthreads = 1;
   else
 	args.nthreads = num_cpu_avail(3);
-		
+
 
   if (args.nthreads == 1) {
 #endif

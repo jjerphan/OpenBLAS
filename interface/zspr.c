@@ -75,7 +75,7 @@ static int (*spr_thread[])(BLASLONG, FLOAT *, FLOAT *, BLASLONG, FLOAT *, FLOAT 
 
 OPENBLAS_EXPORT
 void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
-	 FLOAT  *x, blasint *INCX, FLOAT *a){
+	 FLOAT  *x, blasint *INCX, FLOAT *a, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n		= *N;

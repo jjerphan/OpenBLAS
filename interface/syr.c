@@ -78,7 +78,7 @@ OPENBLAS_EXPORT
 #ifndef CBLAS
 
 void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
-	 FLOAT  *x, blasint *INCX, FLOAT *a, blasint *LDA){
+	 FLOAT  *x, blasint *INCX, FLOAT *a, blasint *LDA, int dummy_len){
 
   char uplo_arg = *UPLO;
   blasint n		= *N;
@@ -180,7 +180,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
           AXPYU_K(i + 1, 0, 0, alpha * x[i], x,     1, a, 1, NULL, 0);
         }
         a += lda;
-      }  
+      }
     } else {
       for (i = 0; i < n; i++){
         if (x[i] != ZERO) {
@@ -190,7 +190,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
       }
     }
     return;
-  } 
+  }
 #endif
   if (incx < 0 ) x -= (n - 1) * incx;
 

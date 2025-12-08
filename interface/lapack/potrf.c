@@ -61,7 +61,7 @@ static blasint (*potrf_parallel[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *
 #endif
 
 OPENBLAS_EXPORT
-void NAME(char *UPLO, blasint *N, FLOAT *a, blasint *ldA, blasint *Info){
+void NAME(char *UPLO, blasint *N, FLOAT *a, blasint *ldA, blasint *Info, int dummy_len){
 
   blas_arg_t args;
 
@@ -115,7 +115,7 @@ void NAME(char *UPLO, blasint *N, FLOAT *a, blasint *ldA, blasint *Info){
   args.common = NULL;
 #ifndef DOUBLE
   int nmax = 128;
-#else 
+#else
   int nmax = 64;
 #endif
   if (args.n <nmax) {

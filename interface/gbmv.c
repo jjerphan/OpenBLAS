@@ -81,7 +81,7 @@ void NAME(char *TRANS, blasint *M, blasint *N,
 	 blasint *KU, blasint *KL,
 	 FLOAT *ALPHA, FLOAT *a, blasint *LDA,
 	 FLOAT *x, blasint *INCX,
-	 FLOAT *BETA, FLOAT *y, blasint *INCY){
+	 FLOAT *BETA, FLOAT *y, blasint *INCY, int dummy_len){
 
   char trans = *TRANS;
   blasint m = *M;

@@ -62,7 +62,7 @@ static blasint (*trtrs_parallel[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *
 
 OPENBLAS_EXPORT
 void NAME(char *UPLO, char* TRANS, char* DIAG, blasint *N, blasint *NRHS, FLOAT *a, blasint *ldA,
-  FLOAT *b, blasint *ldB, blasint *Info){
+  FLOAT *b, blasint *ldB, blasint *Info, int dummy_len0, int dummy_len1, int dummy_len2){
 
     char uplo_arg = *UPLO;
     char trans_arg = *TRANS;
