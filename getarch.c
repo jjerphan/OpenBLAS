@@ -1967,6 +1967,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define OPENBLAS_SUPPORTED
 #endif
 
+#ifdef __EMSCRIPTEN__
+#include "cpuid_riscv64.c"
+#define OPENBLAS_SUPPORTED
+#endif
+
 #ifndef OPENBLAS_SUPPORTED
 #error "This arch/CPU is not supported by OpenBLAS."
 #endif
