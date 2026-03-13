@@ -88,6 +88,8 @@ ifneq (,$(filter 1 2,$(NOFORTRAN)))
 FEXTRALIB =
 endif
 
+FEXTRALIB =
+
 all::
 
 libs::
