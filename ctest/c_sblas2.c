@@ -8,7 +8,7 @@
 #include "common.h"
 #include "cblas_test.h"
 
-void F77_sgemv(int *order, char *transp, int *m, int *n, float *alpha,
+int F77_sgemv(int *order, char *transp, int *m, int *n, float *alpha,
 	       float *a, int *lda, float *x, int *incx, float *beta,
 	       float *y, int *incy ) {
 
@@ -33,9 +33,10 @@ void F77_sgemv(int *order, char *transp, int *m, int *n, float *alpha,
   else
      cblas_sgemv( UNDEFINED, trans,
 		  *m, *n, *alpha, a, *lda, x, *incx, *beta, y, *incy );
+  return 0;
 }
 
-void F77_sger(int *order, int *m, int *n, float *alpha, float *x, int *incx,
+int F77_sger(int *order, int *m, int *n, float *alpha, float *x, int *incx,
 	     float *y, int *incy, float *a, int *lda ) {
 
   float *A;
@@ -58,9 +59,10 @@ void F77_sger(int *order, int *m, int *n, float *alpha, float *x, int *incx,
   }
   else
      cblas_sger( CblasColMajor, *m, *n, *alpha, x, *incx, y, *incy, a, *lda );
+  return 0;
 }
 
-void F77_strmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_strmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, float *a, int *lda, float *x, int *incx) {
   float *A;
   int i,j,LDA;
@@ -86,9 +88,10 @@ void F77_strmv(int *order, char *uplow, char *transp, char *diagn,
   else {
      cblas_strmv(UNDEFINED, uplo, trans, diag, *n, a, *lda, x, *incx);
   }
+  return 0;
 }
 
-void F77_strsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_strsv(int *order, char *uplow, char *transp, char *diagn,
 	       int *n, float *a, int *lda, float *x, int *incx ) {
   float *A;
   int i,j,LDA;
@@ -111,8 +114,9 @@ void F77_strsv(int *order, char *uplow, char *transp, char *diagn,
    }
    else
      cblas_strsv(CblasColMajor, uplo, trans, diag, *n, a, *lda, x, *incx );
+  return 0;
 }
-void F77_ssymv(int *order, char *uplow, int *n, float *alpha, float *a,
+int F77_ssymv(int *order, char *uplow, int *n, float *alpha, float *a,
 	      int *lda, float *x, int *incx, float *beta, float *y,
 	      int *incy) {
   float *A;
@@ -134,9 +138,10 @@ void F77_ssymv(int *order, char *uplow, int *n, float *alpha, float *a,
    else
      cblas_ssymv(CblasColMajor, uplo, *n, *alpha, a, *lda, x, *incx,
 		 *beta, y, *incy );
+  return 0;
 }
 
-void F77_ssyr(int *order, char *uplow, int *n, float *alpha, float *x,
+int F77_ssyr(int *order, char *uplow, int *n, float *alpha, float *x,
 	     int *incx, float *a, int *lda) {
   float *A;
   int i,j,LDA;
@@ -158,9 +163,10 @@ void F77_ssyr(int *order, char *uplow, int *n, float *alpha, float *x,
    }
    else
      cblas_ssyr(CblasColMajor, uplo, *n, *alpha, x, *incx, a, *lda);
+  return 0;
 }
 
-void F77_ssyr2(int *order, char *uplow, int *n, float *alpha, float *x,
+int F77_ssyr2(int *order, char *uplow, int *n, float *alpha, float *x,
 	     int *incx, float *y, int *incy, float *a, int *lda) {
   float *A;
   int i,j,LDA;
@@ -182,9 +188,10 @@ void F77_ssyr2(int *order, char *uplow, int *n, float *alpha, float *x,
    }
    else
      cblas_ssyr2(CblasColMajor, uplo, *n, *alpha, x, *incx, y, *incy, a, *lda);
+  return 0;
 }
 
-void F77_sgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
+int F77_sgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
 	       float *alpha, float *a, int *lda, float *x, int *incx,
 	       float *beta, float *y, int *incy ) {
 
@@ -220,9 +227,10 @@ void F77_sgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
   else
      cblas_sgbmv( CblasColMajor, trans, *m, *n, *kl, *ku, *alpha,
 		  a, *lda, x, *incx, *beta, y, *incy );
+  return 0;
 }
 
-void F77_stbmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_stbmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, int *k, float *a, int *lda, float *x, int *incx) {
   float *A;
   int irow, jcol, i, j, LDA;
@@ -266,9 +274,10 @@ void F77_stbmv(int *order, char *uplow, char *transp, char *diagn,
    }
    else
      cblas_stbmv(CblasColMajor, uplo, trans, diag, *n, *k, a, *lda, x, *incx);
+  return 0;
 }
 
-void F77_stbsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_stbsv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, int *k, float *a, int *lda, float *x, int *incx) {
   float *A;
   int irow, jcol, i, j, LDA;
@@ -312,9 +321,10 @@ void F77_stbsv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_stbsv(CblasColMajor, uplo, trans, diag, *n, *k, a, *lda, x, *incx);
+  return 0;
 }
 
-void F77_ssbmv(int *order, char *uplow, int *n, int *k, float *alpha,
+int F77_ssbmv(int *order, char *uplow, int *n, int *k, float *alpha,
 	      float *a, int *lda, float *x, int *incx, float *beta,
 	      float *y, int *incy) {
   float *A;
@@ -357,9 +367,10 @@ void F77_ssbmv(int *order, char *uplow, int *n, int *k, float *alpha,
    else
      cblas_ssbmv(CblasColMajor, uplo, *n, *k, *alpha, a, *lda, x, *incx,
 		 *beta, y, *incy );
+  return 0;
 }
 
-void F77_sspmv(int *order, char *uplow, int *n, float *alpha, float *ap,
+int F77_sspmv(int *order, char *uplow, int *n, float *alpha, float *ap,
 	      float *x, int *incx, float *beta, float *y, int *incy) {
   float *A,*AP;
   int i,j,k,LDA;
@@ -394,9 +405,10 @@ void F77_sspmv(int *order, char *uplow, int *n, float *alpha, float *ap,
   else
      cblas_sspmv( CblasColMajor, uplo, *n, *alpha, ap, x, *incx, *beta, y,
 		  *incy );
+  return 0;
 }
 
-void F77_stpmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_stpmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, float *ap, float *x, int *incx) {
   float *A, *AP;
   int i, j, k, LDA;
@@ -433,9 +445,10 @@ void F77_stpmv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_stpmv( CblasColMajor, uplo, trans, diag, *n, ap, x, *incx );
+  return 0;
 }
 
-void F77_stpsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_stpsv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, float *ap, float *x, int *incx) {
   float *A, *AP;
   int i, j, k, LDA;
@@ -473,9 +486,10 @@ void F77_stpsv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_stpsv( CblasColMajor, uplo, trans, diag, *n, ap, x, *incx );
+  return 0;
 }
 
-void F77_sspr(int *order, char *uplow, int *n, float *alpha, float *x,
+int F77_sspr(int *order, char *uplow, int *n, float *alpha, float *x,
 	     int *incx, float *ap ){
   float *A, *AP;
   int i,j,k,LDA;
@@ -524,9 +538,10 @@ void F77_sspr(int *order, char *uplow, int *n, float *alpha, float *x,
   }
   else
      cblas_sspr( CblasColMajor, uplo, *n, *alpha, x, *incx, ap );
+  return 0;
 }
 
-void F77_sspr2(int *order, char *uplow, int *n, float *alpha, float *x,
+int F77_sspr2(int *order, char *uplow, int *n, float *alpha, float *x,
 	     int *incx, float *y, int *incy, float *ap ){
   float *A, *AP;
   int i,j,k,LDA;
@@ -576,4 +591,5 @@ void F77_sspr2(int *order, char *uplow, int *n, float *alpha, float *x,
   }
   else
      cblas_sspr2( CblasColMajor, uplo, *n, *alpha, x, *incx, y, *incy, ap );
+  return 0;
 }

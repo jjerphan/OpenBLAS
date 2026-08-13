@@ -14,18 +14,18 @@ double F77_dasum(const int *N, double *X, const int *incX)
    return cblas_dasum(*N, X, *incX);
 }
 
-void F77_daxpy(const int *N, const double *alpha, OPENBLAS_CONST double *X,
+int F77_daxpy(const int *N, const double *alpha, OPENBLAS_CONST double *X,
                     const int *incX, double *Y, const int *incY)
 {
    cblas_daxpy(*N, *alpha, X, *incX, Y, *incY);
-   return;
+   return 0;
 }
 
-void F77_dcopy(const int *N, double *X, const int *incX,
+int F77_dcopy(const int *N, double *X, const int *incX,
                     double *Y, const int *incY)
 {
    cblas_dcopy(*N, X, *incX, Y, *incY);
-   return;
+   return 0;
 }
 
 double F77_ddot(const int *N, OPENBLAS_CONST double *X, const int *incX,
@@ -39,39 +39,39 @@ double F77_dnrm2(const int *N, OPENBLAS_CONST double *X, const int *incX)
    return cblas_dnrm2(*N, X, *incX);
 }
 
-void F77_drotg( double *a, double *b, double *c, double *s)
+int F77_drotg( double *a, double *b, double *c, double *s)
 {
    cblas_drotg(a,b,c,s);
-   return;
+   return 0;
 }
 
-void F77_drot( const int *N, double *X, const int *incX, double *Y,
+int F77_drot( const int *N, double *X, const int *incX, double *Y,
        const int *incY, const double *c, const double *s)
 {
 
    cblas_drot(*N,X,*incX,Y,*incY,*c,*s);
-   return;
+   return 0;
 }
 
-void F77_drotm(const int *N, double *X, const int *incX, double *Y,
+int F77_drotm(const int *N, double *X, const int *incX, double *Y,
                const int *incY, double *dparam)
 {
    cblas_drotm(*N, X, *incX, Y, *incY, dparam);
-   return;
+   return 0;
 }
 
-void F77_dscal(const int *N, const double *alpha, double *X,
+int F77_dscal(const int *N, const double *alpha, double *X,
                          const int *incX)
 {
    cblas_dscal(*N, *alpha, X, *incX);
-   return;
+   return 0;
 }
 
-void F77_dswap( const int *N, double *X, const int *incX,
+int F77_dswap( const int *N, double *X, const int *incX,
                           double *Y, const int *incY)
 {
    cblas_dswap(*N,X,*incX,Y,*incY);
-   return;
+   return 0;
 }
 
 int F77_idamax(const int *N, OPENBLAS_CONST double *X, const int *incX)

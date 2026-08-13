@@ -9,7 +9,7 @@
 #include "common.h"
 #include "cblas_test.h"
 
-void F77_sgemm(int *order, char *transpa, char *transpb, int *m, int *n,
+int F77_sgemm(int *order, char *transpa, char *transpb, int *m, int *n,
               int *k, float *alpha, float *a, int *lda, float *b, int *ldb,
               float *beta, float *c, int *ldc ) {
 
@@ -69,8 +69,9 @@ void F77_sgemm(int *order, char *transpa, char *transpb, int *m, int *n,
   else
      cblas_sgemm( UNDEFINED, transa, transb, *m, *n, *k, *alpha, a, *lda,
                   b, *ldb, *beta, c, *ldc );
+  return 0;
 }
-void F77_ssymm(int *order, char *rtlf, char *uplow, int *m, int *n,
+int F77_ssymm(int *order, char *rtlf, char *uplow, int *m, int *n,
               float *alpha, float *a, int *lda, float *b, int *ldb,
               float *beta, float *c, int *ldc ) {
 
@@ -122,9 +123,10 @@ void F77_ssymm(int *order, char *rtlf, char *uplow, int *m, int *n,
   else
      cblas_ssymm( UNDEFINED, side, uplo, *m, *n, *alpha, a, *lda, b, *ldb,
                   *beta, c, *ldc );
+  return 0;
 }
 
-void F77_ssyrk(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_ssyrk(int *order, char *uplow, char *transp, int *n, int *k,
               float *alpha, float *a, int *lda,
               float *beta, float *c, int *ldc ) {
 
@@ -170,9 +172,10 @@ void F77_ssyrk(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_ssyrk(UNDEFINED, uplo, trans, *n, *k, *alpha, a, *lda, *beta,
 	         c, *ldc );
+  return 0;
 }
 
-void F77_ssyr2k(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_ssyr2k(int *order, char *uplow, char *transp, int *n, int *k,
                float *alpha, float *a, int *lda, float *b, int *ldb,
                float *beta, float *c, int *ldc ) {
   int i,j,LDA,LDB,LDC;
@@ -226,8 +229,9 @@ void F77_ssyr2k(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_ssyr2k(UNDEFINED, uplo, trans, *n, *k, *alpha, a, *lda,
 		   b, *ldb, *beta, c, *ldc );
+  return 0;
 }
-void F77_strmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_strmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
               int *m, int *n, float *alpha, float *a, int *lda, float *b,
               int *ldb) {
   int i,j,LDA,LDB;
@@ -276,9 +280,10 @@ void F77_strmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_strmm(UNDEFINED, side, uplo, trans, diag, *m, *n, *alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }
 
-void F77_strsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_strsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
               int *m, int *n, float *alpha, float *a, int *lda, float *b,
               int *ldb) {
   int i,j,LDA,LDB;
@@ -327,4 +332,5 @@ void F77_strsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_strsm(UNDEFINED, side, uplo, trans, diag, *m, *n, *alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }

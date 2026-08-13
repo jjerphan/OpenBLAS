@@ -9,53 +9,53 @@
 #include "common.h"
 #include "cblas_test.h"
 
-void F77_zaxpy(const int *N, OPENBLAS_CONST void *alpha, void *X,
+int F77_zaxpy(const int *N, OPENBLAS_CONST void *alpha, void *X,
                     const int *incX, void *Y, const int *incY)
 {
    cblas_zaxpy(*N, alpha, X, *incX, Y, *incY);
-   return;
+   return 0;
 }
 
-void F77_zcopy(const int *N, void *X, const int *incX,
+int F77_zcopy(const int *N, void *X, const int *incX,
                     void *Y, const int *incY)
 {
    cblas_zcopy(*N, X, *incX, Y, *incY);
-   return;
+   return 0;
 }
 
-void F77_zdotc(const int *N, OPENBLAS_CONST void *X, const int *incX,
+int F77_zdotc(const int *N, OPENBLAS_CONST void *X, const int *incX,
                      OPENBLAS_CONST void *Y, const int *incY,void *dotc)
 {
    cblas_zdotc_sub(*N, X, *incX, Y, *incY, dotc);
-   return;
+   return 0;
 }
 
-void F77_zdotu(const int *N, void *X, const int *incX,
+int F77_zdotu(const int *N, void *X, const int *incX,
                         void *Y, const int *incY,void *dotu)
 {
    cblas_zdotu_sub(*N, X, *incX, Y, *incY, dotu);
-   return;
+   return 0;
 }
 
-void F77_zdscal(const int *N, const double *alpha, void *X,
+int F77_zdscal(const int *N, const double *alpha, void *X,
                          const int *incX)
 {
    cblas_zdscal(*N, *alpha, X, *incX);
-   return;
+   return 0;
 }
 
-void F77_zscal(const int *N, const void * *alpha, void *X,
+int F77_zscal(const int *N, const void * *alpha, void *X,
                          const int *incX)
 {
    cblas_zscal(*N, alpha, X, *incX);
-   return;
+   return 0;
 }
 
-void F77_zswap( const int *N, void *X, const int *incX,
+int F77_zswap( const int *N, void *X, const int *incX,
                           void *Y, const int *incY)
 {
    cblas_zswap(*N,X,*incX,Y,*incY);
-   return;
+   return 0;
 }
 
 int F77_izamax(const int *N, OPENBLAS_CONST void *X, const int *incX)
