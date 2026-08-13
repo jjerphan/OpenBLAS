@@ -8,7 +8,7 @@
 #include "common.h"
 #include "cblas_test.h"
 
-void F77_dgemv(int *order, char *transp, int *m, int *n, double *alpha,
+int F77_dgemv(int *order, char *transp, int *m, int *n, double *alpha,
 	       double *a, int *lda, double *x, int *incx, double *beta,
 	       double *y, int *incy ) {
 
@@ -33,9 +33,10 @@ void F77_dgemv(int *order, char *transp, int *m, int *n, double *alpha,
   else
      cblas_dgemv( UNDEFINED, trans,
 		  *m, *n, *alpha, a, *lda, x, *incx, *beta, y, *incy );
+  return 0;
 }
 
-void F77_dger(int *order, int *m, int *n, double *alpha, double *x, int *incx,
+int F77_dger(int *order, int *m, int *n, double *alpha, double *x, int *incx,
 	     double *y, int *incy, double *a, int *lda ) {
 
   double *A;
@@ -58,9 +59,10 @@ void F77_dger(int *order, int *m, int *n, double *alpha, double *x, int *incx,
   }
   else
      cblas_dger( CblasColMajor, *m, *n, *alpha, x, *incx, y, *incy, a, *lda );
+  return 0;
 }
 
-void F77_dtrmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtrmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, double *a, int *lda, double *x, int *incx) {
   double *A;
   int i,j,LDA;
@@ -86,9 +88,10 @@ void F77_dtrmv(int *order, char *uplow, char *transp, char *diagn,
   else {
      cblas_dtrmv(UNDEFINED, uplo, trans, diag, *n, a, *lda, x, *incx);
   }
+  return 0;
 }
 
-void F77_dtrsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtrsv(int *order, char *uplow, char *transp, char *diagn,
 	       int *n, double *a, int *lda, double *x, int *incx ) {
   double *A;
   int i,j,LDA;
@@ -111,8 +114,9 @@ void F77_dtrsv(int *order, char *uplow, char *transp, char *diagn,
    }
    else
      cblas_dtrsv(CblasColMajor, uplo, trans, diag, *n, a, *lda, x, *incx );
+  return 0;
 }
-void F77_dsymv(int *order, char *uplow, int *n, double *alpha, double *a,
+int F77_dsymv(int *order, char *uplow, int *n, double *alpha, double *a,
 	      int *lda, double *x, int *incx, double *beta, double *y,
 	      int *incy) {
   double *A;
@@ -134,9 +138,10 @@ void F77_dsymv(int *order, char *uplow, int *n, double *alpha, double *a,
    else
      cblas_dsymv(CblasColMajor, uplo, *n, *alpha, a, *lda, x, *incx,
 		 *beta, y, *incy );
+  return 0;
 }
 
-void F77_dsyr(int *order, char *uplow, int *n, double *alpha, double *x,
+int F77_dsyr(int *order, char *uplow, int *n, double *alpha, double *x,
 	     int *incx, double *a, int *lda) {
   double *A;
   int i,j,LDA;
@@ -158,9 +163,10 @@ void F77_dsyr(int *order, char *uplow, int *n, double *alpha, double *x,
    }
    else
      cblas_dsyr(CblasColMajor, uplo, *n, *alpha, x, *incx, a, *lda);
+  return 0;
 }
 
-void F77_dsyr2(int *order, char *uplow, int *n, double *alpha, double *x,
+int F77_dsyr2(int *order, char *uplow, int *n, double *alpha, double *x,
 	     int *incx, double *y, int *incy, double *a, int *lda) {
   double *A;
   int i,j,LDA;
@@ -182,9 +188,10 @@ void F77_dsyr2(int *order, char *uplow, int *n, double *alpha, double *x,
    }
    else
      cblas_dsyr2(CblasColMajor, uplo, *n, *alpha, x, *incx, y, *incy, a, *lda);
+  return 0;
 }
 
-void F77_dgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
+int F77_dgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
 	       double *alpha, double *a, int *lda, double *x, int *incx,
 	       double *beta, double *y, int *incy ) {
 
@@ -220,9 +227,10 @@ void F77_dgbmv(int *order, char *transp, int *m, int *n, int *kl, int *ku,
   else
      cblas_dgbmv( CblasColMajor, trans, *m, *n, *kl, *ku, *alpha,
 		  a, *lda, x, *incx, *beta, y, *incy );
+  return 0;
 }
 
-void F77_dtbmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtbmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, int *k, double *a, int *lda, double *x, int *incx) {
   double *A;
   int irow, jcol, i, j, LDA;
@@ -266,9 +274,10 @@ void F77_dtbmv(int *order, char *uplow, char *transp, char *diagn,
    }
    else
      cblas_dtbmv(CblasColMajor, uplo, trans, diag, *n, *k, a, *lda, x, *incx);
+  return 0;
 }
 
-void F77_dtbsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtbsv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, int *k, double *a, int *lda, double *x, int *incx) {
   double *A;
   int irow, jcol, i, j, LDA;
@@ -312,9 +321,10 @@ void F77_dtbsv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_dtbsv(CblasColMajor, uplo, trans, diag, *n, *k, a, *lda, x, *incx);
+  return 0;
 }
 
-void F77_dsbmv(int *order, char *uplow, int *n, int *k, double *alpha,
+int F77_dsbmv(int *order, char *uplow, int *n, int *k, double *alpha,
 	      double *a, int *lda, double *x, int *incx, double *beta,
 	      double *y, int *incy) {
   double *A;
@@ -357,9 +367,10 @@ void F77_dsbmv(int *order, char *uplow, int *n, int *k, double *alpha,
    else
      cblas_dsbmv(CblasColMajor, uplo, *n, *k, *alpha, a, *lda, x, *incx,
 		 *beta, y, *incy );
+  return 0;
 }
 
-void F77_dspmv(int *order, char *uplow, int *n, double *alpha, double *ap,
+int F77_dspmv(int *order, char *uplow, int *n, double *alpha, double *ap,
 	      double *x, int *incx, double *beta, double *y, int *incy) {
   double *A,*AP;
   int i,j,k,LDA;
@@ -395,9 +406,10 @@ void F77_dspmv(int *order, char *uplow, int *n, double *alpha, double *ap,
   else
      cblas_dspmv( CblasColMajor, uplo, *n, *alpha, ap, x, *incx, *beta, y,
 		  *incy );
+  return 0;
 }
 
-void F77_dtpmv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtpmv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, double *ap, double *x, int *incx) {
   double *A, *AP;
   int i, j, k, LDA;
@@ -435,9 +447,10 @@ void F77_dtpmv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_dtpmv( CblasColMajor, uplo, trans, diag, *n, ap, x, *incx );
+  return 0;
 }
 
-void F77_dtpsv(int *order, char *uplow, char *transp, char *diagn,
+int F77_dtpsv(int *order, char *uplow, char *transp, char *diagn,
 	      int *n, double *ap, double *x, int *incx) {
   double *A, *AP;
   int i, j, k, LDA;
@@ -476,9 +489,10 @@ void F77_dtpsv(int *order, char *uplow, char *transp, char *diagn,
   }
   else
      cblas_dtpsv( CblasColMajor, uplo, trans, diag, *n, ap, x, *incx );
+  return 0;
 }
 
-void F77_dspr(int *order, char *uplow, int *n, double *alpha, double *x,
+int F77_dspr(int *order, char *uplow, int *n, double *alpha, double *x,
 	     int *incx, double *ap ){
   double *A, *AP;
   int i,j,k,LDA;
@@ -528,9 +542,10 @@ void F77_dspr(int *order, char *uplow, int *n, double *alpha, double *x,
   }
   else
      cblas_dspr( CblasColMajor, uplo, *n, *alpha, x, *incx, ap );
+  return 0;
 }
 
-void F77_dspr2(int *order, char *uplow, int *n, double *alpha, double *x,
+int F77_dspr2(int *order, char *uplow, int *n, double *alpha, double *x,
 	     int *incx, double *y, int *incy, double *ap ){
   double *A, *AP;
   int i,j,k,LDA;
@@ -580,4 +595,5 @@ void F77_dspr2(int *order, char *uplow, int *n, double *alpha, double *x,
   }
   else
      cblas_dspr2( CblasColMajor, uplo, *n, *alpha, x, *incx, y, *incy, ap );
+  return 0;
 }

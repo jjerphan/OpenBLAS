@@ -12,7 +12,7 @@
 #define  TEST_ROW_MJR	1
 #define  UNDEFINED     -1
 
-void F77_dgemm(int *order, char *transpa, char *transpb, int *m, int *n,
+int F77_dgemm(int *order, char *transpa, char *transpb, int *m, int *n,
               int *k, double *alpha, double *a, int *lda, double *b, int *ldb,
               double *beta, double *c, int *ldc ) {
 
@@ -73,8 +73,9 @@ void F77_dgemm(int *order, char *transpa, char *transpb, int *m, int *n,
   else
      cblas_dgemm( UNDEFINED, transa, transb, *m, *n, *k, *alpha, a, *lda,
                   b, *ldb, *beta, c, *ldc );
+  return 0;
 }
-void F77_dsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
+int F77_dsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
               double *alpha, double *a, int *lda, double *b, int *ldb,
               double *beta, double *c, int *ldc ) {
 
@@ -126,9 +127,10 @@ void F77_dsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
   else
      cblas_dsymm( UNDEFINED, side, uplo, *m, *n, *alpha, a, *lda, b, *ldb,
                   *beta, c, *ldc );
+  return 0;
 }
 
-void F77_dsyrk(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_dsyrk(int *order, char *uplow, char *transp, int *n, int *k,
               double *alpha, double *a, int *lda,
               double *beta, double *c, int *ldc ) {
 
@@ -174,9 +176,10 @@ void F77_dsyrk(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_dsyrk(UNDEFINED, uplo, trans, *n, *k, *alpha, a, *lda, *beta,
 	         c, *ldc );
+  return 0;
 }
 
-void F77_dsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_dsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
                double *alpha, double *a, int *lda, double *b, int *ldb,
                double *beta, double *c, int *ldc ) {
   int i,j,LDA,LDB,LDC;
@@ -230,8 +233,9 @@ void F77_dsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_dsyr2k(UNDEFINED, uplo, trans, *n, *k, *alpha, a, *lda,
 		   b, *ldb, *beta, c, *ldc );
+  return 0;
 }
-void F77_dtrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_dtrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
               int *m, int *n, double *alpha, double *a, int *lda, double *b,
               int *ldb) {
   int i,j,LDA,LDB;
@@ -280,9 +284,10 @@ void F77_dtrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_dtrmm(UNDEFINED, side, uplo, trans, diag, *m, *n, *alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }
 
-void F77_dtrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_dtrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
               int *m, int *n, double *alpha, double *a, int *lda, double *b,
               int *ldb) {
   int i,j,LDA,LDB;
@@ -331,4 +336,5 @@ void F77_dtrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_dtrsm(UNDEFINED, side, uplo, trans, diag, *m, *n, *alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }

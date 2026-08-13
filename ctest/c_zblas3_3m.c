@@ -11,7 +11,7 @@
 #define  TEST_ROW_MJR	1
 #define  UNDEFINED     -1
 
-void F77_zgemm(int *order, char *transpa, char *transpb, int *m, int *n,
+int F77_zgemm(int *order, char *transpa, char *transpb, int *m, int *n,
      int *k, CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
      CBLAS_TEST_ZOMPLEX *b, int *ldb, CBLAS_TEST_ZOMPLEX *beta,
      CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -86,8 +86,9 @@ void F77_zgemm(int *order, char *transpa, char *transpb, int *m, int *n,
   else
      cblas_zgemm( UNDEFINED, transa, transb, *m, *n, *k, alpha, a, *lda,
                   b, *ldb, beta, c, *ldc );
+  return 0;
 }
-void F77_zhemm(int *order, char *rtlf, char *uplow, int *m, int *n,
+int F77_zhemm(int *order, char *rtlf, char *uplow, int *m, int *n,
         CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
 	CBLAS_TEST_ZOMPLEX *b, int *ldb, CBLAS_TEST_ZOMPLEX *beta,
         CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -150,8 +151,9 @@ void F77_zhemm(int *order, char *rtlf, char *uplow, int *m, int *n,
   else
      cblas_zhemm( UNDEFINED, side, uplo, *m, *n, alpha, a, *lda, b, *ldb,
                   beta, c, *ldc );
+  return 0;
 }
-void F77_zsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
+int F77_zsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
           CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
 	  CBLAS_TEST_ZOMPLEX *b, int *ldb, CBLAS_TEST_ZOMPLEX *beta,
           CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -204,9 +206,10 @@ void F77_zsymm(int *order, char *rtlf, char *uplow, int *m, int *n,
   else
      cblas_zsymm( UNDEFINED, side, uplo, *m, *n, alpha, a, *lda, b, *ldb,
                   beta, c, *ldc );
+  return 0;
 }
 
-void F77_zherk(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_zherk(int *order, char *uplow, char *transp, int *n, int *k,
      double *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
      double *beta, CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
 
@@ -260,9 +263,10 @@ void F77_zherk(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_zherk(UNDEFINED, uplo, trans, *n, *k, *alpha, a, *lda, *beta,
 	         c, *ldc );
+  return 0;
 }
 
-void F77_zsyrk(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_zsyrk(int *order, char *uplow, char *transp, int *n, int *k,
      CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
      CBLAS_TEST_ZOMPLEX *beta, CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
 
@@ -316,8 +320,9 @@ void F77_zsyrk(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_zsyrk(UNDEFINED, uplo, trans, *n, *k, alpha, a, *lda, beta,
 	         c, *ldc );
+  return 0;
 }
-void F77_zher2k(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_zher2k(int *order, char *uplow, char *transp, int *n, int *k,
         CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
 	CBLAS_TEST_ZOMPLEX *b, int *ldb, double *beta,
         CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -380,8 +385,9 @@ void F77_zher2k(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_zher2k(UNDEFINED, uplo, trans, *n, *k, alpha, a, *lda,
 		   b, *ldb, *beta, c, *ldc );
+  return 0;
 }
-void F77_zsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
+int F77_zsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
          CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
 	 CBLAS_TEST_ZOMPLEX *b, int *ldb, CBLAS_TEST_ZOMPLEX *beta,
          CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -444,8 +450,9 @@ void F77_zsyr2k(int *order, char *uplow, char *transp, int *n, int *k,
   else
      cblas_zsyr2k(UNDEFINED, uplo, trans, *n, *k, alpha, a, *lda,
 		   b, *ldb, beta, c, *ldc );
+  return 0;
 }
-void F77_ztrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_ztrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
        int *m, int *n, CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a,
        int *lda, CBLAS_TEST_ZOMPLEX *b, int *ldb) {
   int i,j,LDA,LDB;
@@ -502,9 +509,10 @@ void F77_ztrmm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_ztrmm(UNDEFINED, side, uplo, trans, diag, *m, *n, alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }
 
-void F77_ztrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
+int F77_ztrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
          int *m, int *n, CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a,
          int *lda, CBLAS_TEST_ZOMPLEX *b, int *ldb) {
   int i,j,LDA,LDB;
@@ -561,10 +569,11 @@ void F77_ztrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
   else
      cblas_ztrsm(UNDEFINED, side, uplo, trans, diag, *m, *n, alpha,
 		   a, *lda, b, *ldb);
+  return 0;
 }
 
 
-void F77_zgemm3m(int *order, char *transpa, char *transpb, int *m, int *n,
+int F77_zgemm3m(int *order, char *transpa, char *transpb, int *m, int *n,
      int *k, CBLAS_TEST_ZOMPLEX *alpha, CBLAS_TEST_ZOMPLEX *a, int *lda,
      CBLAS_TEST_ZOMPLEX *b, int *ldb, CBLAS_TEST_ZOMPLEX *beta,
      CBLAS_TEST_ZOMPLEX *c, int *ldc ) {
@@ -639,5 +648,6 @@ void F77_zgemm3m(int *order, char *transpa, char *transpb, int *m, int *n,
   else
      cblas_zgemm3m( UNDEFINED, transa, transb, *m, *n, *k, alpha, a, *lda,
                   b, *ldb, beta, c, *ldc );
+  return 0;
 }
 

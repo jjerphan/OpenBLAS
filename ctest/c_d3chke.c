@@ -17,7 +17,7 @@ void chkxer(void) {
    cblas_lerr = 1 ;
 }
 
-void F77_d3chke(char *rout) {
+int F77_d3chke(char *rout) {
    char *sf = ( rout ) ;
    double A[2] = {0.0,0.0},
           B[2] = {0.0,0.0},
@@ -1259,4 +1259,5 @@ void F77_d3chke(char *rout) {
        printf("***** %s FAILED THE TESTS OF ERROR-EXITS *******\n",cblas_rout);
        cblas_test_fail();
    }
+   return 0;
 }
