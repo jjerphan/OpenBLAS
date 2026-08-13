@@ -75,8 +75,8 @@ endif
 
 run_test: $(UTESTBIN) $(UTESTEXTBIN)
 ifneq ($(CROSS), 1)
-	./$(UTESTBIN)
-	./$(UTESTEXTBIN)
+	node ./$(UTESTBIN)
+	node ./$(UTESTEXTBIN)
 endif
 
 clean:
