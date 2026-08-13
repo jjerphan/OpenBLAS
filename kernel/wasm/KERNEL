@@ -95,10 +95,20 @@ DGEMVTKERNEL = ../riscv64/gemv_t.c
 CGEMVTKERNEL = ../riscv64/zgemv_t.c
 ZGEMVTKERNEL = ../riscv64/zgemv_t.c
 
+# KERNEL.$(TARGET_CORE) is included first; keep its TRMM width if set.
+# Unroll-4 GEMM packing uses trmm_*copy_4, which is wrong with a 2x2 kernel.
+ifndef STRMMKERNEL
 STRMMKERNEL	= ../generic/trmmkernel_2x2.c
+endif
+ifndef DTRMMKERNEL
 DTRMMKERNEL	= ../generic/trmmkernel_2x2.c
+endif
+ifndef CTRMMKERNEL
 CTRMMKERNEL	= ../generic/ztrmmkernel_2x2.c
+endif
+ifndef ZTRMMKERNEL
 ZTRMMKERNEL	= ../generic/ztrmmkernel_2x2.c
+endif
 
 ifndef SGEMMKERNEL
 SGEMMKERNEL    =  ../generic/gemmkernel_2x2.c
