@@ -30,6 +30,13 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if defined(__wasm_simd128__)
 #include <wasm_simd128.h>
+#if defined(__wasm_relaxed_simd__)
+#define MADD_F32(a, b, c) wasm_f32x4_relaxed_madd((a), (b), (c))
+#define MADD_F64(a, b, c) wasm_f64x2_relaxed_madd((a), (b), (c))
+#else
+#define MADD_F32(a, b, c) wasm_f32x4_add((c), wasm_f32x4_mul((a), (b)))
+#define MADD_F64(a, b, c) wasm_f64x2_add((c), wasm_f64x2_mul((a), (b)))
+#endif
 #endif
 
 #if defined(__wasm_simd128__)
@@ -99,14 +106,10 @@ int CNAME(BLASLONG bm, BLASLONG bn, BLASLONG bk, FLOAT alpha, IFLOAT *ba,
                                         v128_t vcol1 =
                                             wasm_i32x4_shuffle(vb01, vb23, 1, 3, 5, 7);
 
-                                        vacc00 = wasm_f32x4_add(
-                                            vacc00, wasm_f32x4_mul(vrow0, vcol0));
-                                        vacc10 = wasm_f32x4_add(
-                                            vacc10, wasm_f32x4_mul(vrow1, vcol0));
-                                        vacc01 = wasm_f32x4_add(
-                                            vacc01, wasm_f32x4_mul(vrow0, vcol1));
-                                        vacc11 = wasm_f32x4_add(
-                                            vacc11, wasm_f32x4_mul(vrow1, vcol1));
+                                        vacc00 = MADD_F32(vrow0, vcol0, vacc00);
+                                        vacc10 = MADD_F32(vrow1, vcol0, vacc10);
+                                        vacc01 = MADD_F32(vrow0, vcol1, vacc01);
+                                        vacc11 = MADD_F32(vrow1, vcol1, vacc11);
 
                                         ptrba += 8;
                                         ptrbb += 8;
@@ -139,14 +142,10 @@ int CNAME(BLASLONG bm, BLASLONG bn, BLASLONG bk, FLOAT alpha, IFLOAT *ba,
                                         v128_t vcol1 =
                                             wasm_i64x2_shuffle(vb01, vb23, 1, 3);
 
-                                        vacc00 = wasm_f64x2_add(
-                                            vacc00, wasm_f64x2_mul(vrow0, vcol0));
-                                        vacc10 = wasm_f64x2_add(
-                                            vacc10, wasm_f64x2_mul(vrow1, vcol0));
-                                        vacc01 = wasm_f64x2_add(
-                                            vacc01, wasm_f64x2_mul(vrow0, vcol1));
-                                        vacc11 = wasm_f64x2_add(
-                                            vacc11, wasm_f64x2_mul(vrow1, vcol1));
+                                        vacc00 = MADD_F64(vrow0, vcol0, vacc00);
+                                        vacc10 = MADD_F64(vrow1, vcol0, vacc10);
+                                        vacc01 = MADD_F64(vrow0, vcol1, vacc01);
+                                        vacc11 = MADD_F64(vrow1, vcol1, vacc11);
 
                                         ptrba += 4;
                                         ptrbb += 4;
