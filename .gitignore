@@ -119,3 +119,7 @@ CMakeCache.txt
 CMakeFiles/*
 .vscode
 **/__pycache__
+.em-prefix
+benchmark/wasm/out/
+benchmark/wasm/results/latest.csv
+!benchmark/wasm/build.sh
