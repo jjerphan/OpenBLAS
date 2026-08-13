@@ -327,7 +327,7 @@ int /* Main program */ main(void)
     static char snamet[12], transa[1], transb[1];
     static real thresh;
     static logical rorder;
-    extern /* Subroutine */ void cc3chke_(char *);
+    extern /* Subroutine */ int cc3chke_(char *);
     static integer layout;
     static logical ltestt, tsterr;
     static complex alf[7];
@@ -851,7 +851,7 @@ L230:
 	    *, char *, char *, integer *, integer *, integer *, complex *, 
 	    integer *, integer *, complex *, integer *);
     integer ia, ib, ma, mb, na, nb, nc, ik, im, in;
-    extern /* Subroutine */ void ccgemm_(integer *, char *, char *, integer *, 
+    extern /* Subroutine */ int ccgemm_(integer *, char *, char *, integer *, 
 	    integer *, integer *, complex *, complex *, integer *, complex *, 
 	    integer *, complex *, complex *, integer *);
     integer ks, ms, ns;
@@ -1263,13 +1263,13 @@ L130:
 	    *, char *, char *, integer *, integer *, complex *, integer *, 
 	    integer *, complex *, integer *);
     integer ia, ib, na, nc, im, in;
-    extern /* Subroutine */ void cchemm_(integer *, char *, char *, integer *, 
+    extern /* Subroutine */ int cchemm_(integer *, char *, char *, integer *, 
 	    integer *, complex *, complex *, integer *, complex *, integer *, 
 	    complex *, complex *, integer *);
     integer ms, ns;
     extern logical lceres_(char *, char *, integer *, integer *, complex *, 
 	    complex *, integer *);
-    extern /* Subroutine */ void ccsymm_(integer *, char *, char *, integer *, 
+    extern /* Subroutine */ int ccsymm_(integer *, char *, char *, integer *, 
 	    integer *, complex *, complex *, integer *, complex *, integer *, 
 	    complex *, complex *, integer *);
     real errmax;
@@ -1663,11 +1663,11 @@ L120:
     integer ia, na, nc, im, in, ms, ns;
     extern logical lceres_(char *, char *, integer *, integer *, complex *, 
 	    complex *, integer *);
-    extern /* Subroutine */ void cctrmm_(integer *, char *, char *, char *, 
+    extern /* Subroutine */ int cctrmm_(integer *, char *, char *, char *, 
 	    char *, integer *, integer *, complex *, complex *, integer *, 
 	    complex *, integer *);
     char tranas[1], transa[1];
-    extern /* Subroutine */ void cctrsm_(integer *, char *, char *, char *, 
+    extern /* Subroutine */ int cctrsm_(integer *, char *, char *, char *, 
 	    char *, integer *, integer *, complex *, complex *, integer *, 
 	    complex *, integer *);
     real errmax;
@@ -2138,7 +2138,7 @@ L160:
 	    integer *, char *, integer *, char *, char *, integer *, integer *
 	    , real *, integer *, real *, integer *);
     integer ia, ib, jc, ma, na, nc, ik, in, jj, lj, ks;
-    extern /* Subroutine */ void ccherk_(integer *, char *, char *, integer *, 
+    extern /* Subroutine */ int ccherk_(integer *, char *, char *, integer *, 
 	    integer *, real *, complex *, integer *, real *, complex *, 
 	    integer *);
     integer ns;
@@ -2146,7 +2146,7 @@ L160:
     extern logical lceres_(char *, char *, integer *, integer *, complex *, 
 	    complex *, integer *);
     real errmax;
-    extern /* Subroutine */ void ccsyrk_(integer *, char *, char *, integer *, 
+    extern /* Subroutine */ int ccsyrk_(integer *, char *, char *, integer *, 
 	    integer *, complex *, complex *, integer *, complex *, complex *, 
 	    integer *);
     char transs[1], transt[1];
@@ -2638,12 +2638,12 @@ L130:
 	    complex *, integer *);
     real errmax;
     char transs[1], transt[1];
-    extern /* Subroutine */ void ccher2k_(integer *, char *, char *, integer *,
+    extern /* Subroutine */ int ccher2k_(integer *, char *, char *, integer *,
 	     integer *, complex *, complex *, integer *, complex *, integer *,
 	     real *, complex *, integer *);
     integer laa, lbb, lda, lcc, ldb, ldc;
     extern logical lce_(complex *, complex *, integer *);
-    extern /* Subroutine */ void ccsyr2k_(integer *, char *, char *, integer *,
+    extern /* Subroutine */ int ccsyr2k_(integer *, char *, char *, integer *,
 	     integer *, complex *, complex *, integer *, complex *, integer *,
 	     complex *, complex *, integer *);
     complex als;

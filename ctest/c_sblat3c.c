@@ -296,7 +296,7 @@ static logical c_false = FALSE_;
     static logical rorder;
     static integer layout;
     static logical ltestt, tsterr;
-    extern /* Subroutine */ void cs3chke_(char*);
+    extern /* Subroutine */ int cs3chke_(char*);
     static real alf[7], bet[7];
     extern logical lse_(real*, real*, integer*);
     static real eps, err;
@@ -783,11 +783,11 @@ L230:
     static logical trana, tranb;
     static integer nargs;
     static logical reset;
-    extern /* Subroutine */ void sprcn1_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int sprcn1_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smake_(char*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, logical*, real*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smmch_(char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*, real*, real*, real*, integer*, real*, real*, logical*, integer*, logical*, ftnlen, ftnlen);
     static integer ia, ib, ma, mb, na, nb, nc, ik, im, in, ks, ms, ns;
-    extern /* Subroutine */ void csgemm_(integer*, char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
+    extern /* Subroutine */ int csgemm_(integer*, char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
     static char tranas[1], tranbs[1], transa[1], transb[1];
     static real errmax;
     extern logical lseres_(char*, char*, integer*, integer*, real*, real*, integer*, ftnlen, ftnlen);
@@ -1123,7 +1123,7 @@ L130:
 
 
 
-/* Subroutine */ void sprcn1_(integer* nout, integer* nc, char* sname, integer* iorder, char* transa, char* transb, integer* m, integer* n, integer* k, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen transa_len, ftnlen transb_len)
+/* Subroutine */ int sprcn1_(integer* nout, integer* nc, char* sname, integer* iorder, char* transa, char* transb, integer* m, integer* n, integer* k, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen transa_len, ftnlen transb_len)
 {
 
     /* Local variables */
@@ -1183,8 +1183,8 @@ L130:
     static integer ia, ib, na, nc, im, in, ms, ns;
     static real errmax;
     extern logical lseres_(char*, char*, integer*, integer*, real*, real*, integer*, ftnlen, ftnlen);
-    extern /* Subroutine */ void cssymm_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
-    extern void sprcn2_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int cssymm_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
+    extern int sprcn2_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smake_(char*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, logical*, real*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smmch_(char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*, real*, real*, real*, integer*, real*, real*, logical*, integer*, logical*, ftnlen, ftnlen);
     static integer laa, lbb, lda, lcc, ldb, ldc, ics;
@@ -1498,7 +1498,7 @@ L120:
 } /* schk2_ */
 
 
-/* Subroutine */ void sprcn2_(integer* nout, integer* nc, char* sname, integer* iorder, char* side, char* uplo, integer* m, integer* n, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen side_len, ftnlen uplo_len)
+/* Subroutine */ int sprcn2_(integer* nout, integer* nc, char* sname, integer* iorder, char* side, char* uplo, integer* m, integer* n, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen side_len, ftnlen uplo_len)
 {
 
     /* Local variables */
@@ -1553,15 +1553,15 @@ L120:
     static integer nargs;
     static logical reset;
     static char uplos[1];
-    extern /* Subroutine */ void sprcn3_(integer*, integer*, char*, integer*, char*, char*, char*, char*, integer*, integer*, real*, integer*, integer*, ftnlen , ftnlen, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int sprcn3_(integer*, integer*, char*, integer*, char*, char*, char*, char*, integer*, integer*, real*, integer*, integer*, ftnlen , ftnlen, ftnlen, ftnlen, ftnlen);
     static integer ia, na, nc, im, in, ms, ns;
     static char tranas[1], transa[1];
     static real errmax;
     extern /* Subroutine */ int smake_(char*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, logical*, real*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smmch_(char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*, real*, real*, real*, integer*, real*, real*, logical*, integer*, logical*, ftnlen, ftnlen);
     extern logical lseres_(char*, char*, integer*, integer*, real*, real*, integer*, ftnlen, ftnlen);
-    extern /* Subroutine */ void cstrmm_(integer*, char*, char*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*);
-    extern /* Subroutine */ void cstrsm_(integer*, char*, char*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*);
+    extern /* Subroutine */ int cstrmm_(integer*, char*, char*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*);
+    extern /* Subroutine */ int cstrsm_(integer*, char*, char*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*);
     static integer laa, icd, lbb, lda, ldb, ics;
     static real als;
     static integer ict, icu;
@@ -1938,7 +1938,7 @@ L160:
 } /* schk3_ */
 
 
-/* Subroutine */ void sprcn3_(integer* nout, integer* nc, char* sname, integer* iorder, char* side, char* uplo, char* transa, char* diag, integer* m, integer* n, real* alpha, integer* lda, integer* ldb, ftnlen sname_len, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len)
+/* Subroutine */ int sprcn3_(integer* nout, integer* nc, char* sname, integer* iorder, char* side, char* uplo, char* transa, char* diag, integer* m, integer* n, real* alpha, integer* lda, integer* ldb, ftnlen sname_len, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len)
 {
 
     /* Local variables */
@@ -2004,14 +2004,14 @@ L160:
     static char trans[1];
     static logical upper;
     static char uplos[1];
-    extern /* Subroutine */ void sprcn4_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int sprcn4_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smake_(char*, char*, char*, integer*, integer*, real*, integer*, real*, integer*, logical*, real*, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int smmch_(char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*, real*, real*, real*, integer*, real*, real*, logical*, integer*, logical*, ftnlen, ftnlen);
     static integer ia, ib, jc, ma, na, nc, ik, in, jj, lj, ks, ns;
     static real errmax;
     extern logical lseres_(char*, char*, integer*, integer*, real*, real*, integer*, ftnlen, ftnlen);
     static char transs[1];
-    extern /* Subroutine */ void cssyrk_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, real*, integer*);
+    extern /* Subroutine */ int cssyrk_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, real*, integer*);
     static integer laa, lda, lcc, ldc;
     static real als;
     static integer ict, icu;
@@ -2325,7 +2325,7 @@ L130:
 } /* schk4_ */
 
 
-/* Subroutine */ void sprcn4_(integer* nout, integer* nc, char* sname, integer* iorder, char* uplo, char* transa, integer* n, integer* k, real* alpha, integer* lda, real* beta, integer* ldc, ftnlen sname_len, ftnlen uplo_len, ftnlen transa_len)
+/* Subroutine */ int sprcn4_(integer* nout, integer* nc, char* sname, integer* iorder, char* uplo, char* transa, integer* n, integer* k, real* alpha, integer* lda, real* beta, integer* ldc, ftnlen sname_len, ftnlen uplo_len, ftnlen transa_len)
 {
 
     /* Local variables */
@@ -2382,7 +2382,7 @@ L130:
     static logical upper;
     static char uplos[1];
     static integer ia, ib;
-    extern /* Subroutine */ void sprcn5_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int sprcn5_(integer*, integer*, char*, integer*, char*, char*, integer*, integer*, real*, integer*, integer*, real*, integer*, ftnlen, ftnlen, ftnlen);
     static integer jc, ma, na, nc, ik, in, jj, lj, ks, ns;
     static real errmax;
     extern logical lseres_(char*, char*, integer*, integer*, real*, real*, integer*, ftnlen, ftnlen);
@@ -2391,7 +2391,7 @@ L130:
     static integer laa, lbb, lda, lcc, ldb, ldc;
     static real als;
     static integer ict, icu;
-    extern /* Subroutine */ void cssyr2k_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
+    extern /* Subroutine */ int cssyr2k_(integer*, char*, char*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*);
     extern logical lse_(real*, real*, integer*);
     extern /* Subroutine */ int smmch_(char*, char*, integer*, integer*, integer*, real*, real*, integer*, real*, integer*, real*, real*, integer*, real*, real*, real*, integer*, real*, real*, logical*, integer*, logical*, ftnlen, ftnlen);
     static real err;
@@ -2756,7 +2756,7 @@ L160:
 } /* schk5_ */
 
 
-/* Subroutine */ void sprcn5_(integer* nout, integer* nc, char* sname, integer* iorder, char* uplo, char* transa, integer* n, integer* k, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen uplo_len, ftnlen transa_len)
+/* Subroutine */ int sprcn5_(integer* nout, integer* nc, char* sname, integer* iorder, char* uplo, char* transa, integer* n, integer* k, real* alpha, integer* lda, integer* ldb, real* beta, integer* ldc, ftnlen sname_len, ftnlen uplo_len, ftnlen transa_len)
 {
 
     /* Local variables */
