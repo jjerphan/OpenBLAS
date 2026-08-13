@@ -332,7 +332,7 @@ static doublereal c_b34 = 1.;
 
     /* Local variables */
     static integer k;
-    extern /* Subroutine */ void drotgtest_(doublereal*,doublereal*,doublereal*,doublereal*);
+    extern /* Subroutine */ int drotgtest_(doublereal*,doublereal*,doublereal*,doublereal*);
     extern int stest1_(doublereal*,doublereal*,doublereal*,doublereal*);
     static doublereal sa, sb, sc, ss;
 
@@ -406,7 +406,7 @@ L40:
     extern doublereal dnrm2test_(integer*, doublereal*, integer*);
     static doublereal stemp[1], strue[8];
     extern /* Subroutine */ int stest_(integer*,doublereal*,doublereal*,doublereal*,doublereal*);
-    extern void dscaltest_(integer*,doublereal*,doublereal*,integer*);
+    extern int dscaltest_(integer*,doublereal*,doublereal*,integer*);
     extern doublereal dasumtest_(integer*,doublereal*,integer*);
     extern /* Subroutine */ int itest1_(integer*,integer*), stest1_(doublereal*,doublereal*,doublereal*,doublereal*);
     static doublereal sx[8];
@@ -520,7 +520,7 @@ L40:
     extern doublereal ddottest_(integer*,doublereal*,integer*,doublereal*,integer*);
     static integer i__, j, ksize;
     extern /* Subroutine */ int stest_(integer*,doublereal*,doublereal*,doublereal*,doublereal*);
-    extern void dcopytest_(integer*,doublereal*,integer*,doublereal*,integer*), dswaptest_(integer*,doublereal*,integer*,doublereal*,integer*), 
+    extern int dcopytest_(integer*,doublereal*,integer*,doublereal*,integer*), dswaptest_(integer*,doublereal*,integer*,doublereal*,integer*), 
 	    daxpytest_(integer*,doublereal*,doublereal*,integer*,doublereal*,integer*);
     extern int stest1_(doublereal*,doublereal*,doublereal*,doublereal*);
     static integer ki, kn, mx, my;
@@ -622,10 +622,10 @@ L40:
 	    ;
 
     /* Local variables */
-    extern /* Subroutine */ void drottest_(integer*,doublereal*,integer*,doublereal*,integer*,doublereal*,doublereal*);
+    extern /* Subroutine */ int drottest_(integer*,doublereal*,integer*,doublereal*,integer*,doublereal*,doublereal*);
     static integer i__, k, ksize;
     extern /* Subroutine */int stest_(integer*,doublereal*,doublereal*,doublereal*,doublereal*);
-    extern void drotmtest_(integer*,doublereal*,integer*,doublereal*,integer*,doublereal*);
+    extern int drotmtest_(integer*,doublereal*,integer*,doublereal*,integer*,doublereal*);
     static integer ki, kn;
     static doublereal dparam[5], sx[10], sy[10], stx[10], sty[10];
 

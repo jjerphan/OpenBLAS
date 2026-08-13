@@ -433,12 +433,12 @@ static real c_b43 = (float)1.;
     extern /* Subroutine */ int ctest_(integer*, complex*, complex*, complex*, real*);
     static complex mwpcs[5], mwpct[5];
     extern /* Subroutine */ int itest1_(integer*, integer*), stest1_(real*,real*,real*,real*);
-    extern /* Subroutine */ void cscaltest_(integer*, complex*, complex*, integer*);
+    extern /* Subroutine */ int cscaltest_(integer*, complex*, complex*, integer*);
     static complex cx[8];
     extern real scnrm2test_(integer*, complex*, integer*);
     static integer np1;
     extern integer icamaxtest_(integer*, complex*, integer*);
-    extern /* Subroutine */ void csscaltest_(integer*, real*, complex*, integer*);
+    extern /* Subroutine */ int csscaltest_(integer*, real*, complex*, integer*);
     extern real scasumtest_(integer*, complex*, integer*);
     static integer len;
 
@@ -730,7 +730,7 @@ static real c_b43 = (float)1.;
     static complex ctemp;
     extern /* Subroutine */ int ctest_(integer*, complex*, complex*, complex*, real*);
     static integer ksize;
-    extern /* Subroutine */ void cdotctest_(integer*, complex*, integer*, complex*, integer*,complex*), ccopytest_(integer*, complex*, integer*, complex*, integer*), cdotutest_(integer*, complex*, integer*, complex*, integer*, complex*), 
+    extern /* Subroutine */ int cdotctest_(integer*, complex*, integer*, complex*, integer*,complex*), ccopytest_(integer*, complex*, integer*, complex*, integer*), cdotutest_(integer*, complex*, integer*, complex*, integer*, complex*), 
 	    cswaptest_(integer*, complex*, integer*, complex*, integer*), caxpytest_(integer*, complex*, complex*, integer*, complex*, integer*);
     static integer ki, kn;
     static complex cx[7], cy[7];
